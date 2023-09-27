@@ -258,6 +258,19 @@ function TodayCard({ cRef }) {
     router.push(CONFIG.HERO_TITLE_LINK)
   }
 
+  /**
+   * 右部hero图片轮播
+   */
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex(prevIndex => (prevIndex + 1) % CONFIG.SLIDE_IMAGES.length)
+    }, 7000)
+    return () => clearInterval(interval)
+  }, [])
+  const imageUrl = CONFIG.SLIDE_IMAGES[currentImageIndex]
+
+
   return <div id='today-card' className={`${isCoverUp ? ' ' : 'pointer-events-none'} overflow-hidden absolute hidden xl:flex flex-1 flex-col h-full top-0 w-full`}>
         <div id='card-body' onClick={handleCardClick} className={`${isCoverUp ? 'opacity-100 cursor-pointer' : 'opacity-0 transform scale-110 pointer-events-none'} shadow transition-all duration-200 today-card h-full bg-[#0E57D5] rounded-xl relative overflow-hidden flex items-end`}>
             <div id='today-card-info' className='z-10 flex justify-between w-full relative text-white p-10 items-end'>
@@ -270,7 +283,7 @@ function TodayCard({ cRef }) {
                     <div id='more' className='select-none'>更多推荐</div>
                 </div>
             </div>
-            <div id='today-card-cover' className={`${isCoverUp ? '' : ' pointer-events-none'} cursor-pointer today-card-cover absolute w-full h-full top-0`} style={{ background: "url('https://bu.dusays.com/2023/03/12/640dcd3a1b146.png') no-repeat center /cover" }}></div>
+            <div id='today-card-cover' className={`${isCoverUp ? '' : ' pointer-events-none'} cursor-pointer today-card-cover absolute w-full h-full top-0`} style={{ background: `url(${imageUrl}) no-repeat center /cover` }}></div>
         </div>
     </div>
 }
