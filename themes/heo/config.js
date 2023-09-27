@@ -1,7 +1,7 @@
 const CONFIG = {
   HOME_BANNER_ENABLE: true,
 
-  SITE_CREATE_TIME: '2023-08-10', // 建站日期，用于计算网站运行的第几天
+  SITE_CREATE_TIME: '2022-12-31', // 建站日期，用于计算网站运行的第几天
 
   // 首页顶部通知条滚动内容，如不需要可以留空 []
   NOTICE_BAR: [
@@ -14,9 +14,6 @@ const CONFIG = {
   HERO_TITLE_1: '分享计院学生',
   HERO_TITLE_2: '的学习日常',
   HERO_TITLE_3: 'blog.cajzella.cn',
-  HERO_TITLE_4: '新版上线',
-  HERO_TITLE_5: 'NotionNext4.0 轻松定制主题',
-  HERO_TITLE_LINK: 'https://tangly1024.com',
 
   // 英雄区显示三个置顶分类
   HERO_CATEGORY_1: { title: '必看精选', url: '/tag/精选' },

@@ -241,14 +241,14 @@ function TodayCard({ cRef }) {
     }
   })
 
-  /**
-       * 点击更多
-       * @param {*} e
-       */
-  function handleClickMore(e) {
-    e.stopPropagation()
-    setIsCoverUp(false)
-  }
+  // /**
+  //      * 点击更多
+  //      * @param {*} e
+  //      */
+  // function handleClickMore(e) {
+  //   e.stopPropagation()
+  //   setIsCoverUp(false)
+  // }
 
   /**
    * 右部hero图片轮播
@@ -257,7 +257,7 @@ function TodayCard({ cRef }) {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex(prevIndex => (prevIndex + 1) % CONFIG.SLIDE_IMAGES.length)
-    }, 7000)
+    }, 10000)
     return () => clearInterval(interval)
   }, [])
   const imageUrl = CONFIG.SLIDE_IMAGES[currentImageIndex]
@@ -265,12 +265,12 @@ function TodayCard({ cRef }) {
 
   return <div id='today-card' className={`${isCoverUp ? ' ' : 'pointer-events-none'} overflow-hidden absolute hidden xl:flex flex-1 flex-col h-full top-0 w-full`}>
         <div id='card-body' className={`${isCoverUp ? 'opacity-100 cursor-pointer' : 'opacity-0 transform scale-110 pointer-events-none'} shadow transition-all duration-200 today-card h-full bg-[#0E57D5] rounded-xl relative overflow-hidden flex items-end`}>
-            <div id='today-card-info' className='z-10 flex justify-between w-full relative text-white p-10 items-end'>
-                <div onClick={handleClickMore} className={`'${isCoverUp ? '' : 'hidden pointer-events-none '} flex items-center px-3 h-10 justify-center bg-[#425aef] hover:bg-[#4259efcb] transition-colors duration-100 rounded-3xl`}>
-                    <PlusSmall className={'w-6 h-6 mr-2 bg-white rounded-full stroke-indigo-400'} />
-                    <div id='more' className='select-none'>更多推荐</div>
-                </div>
-            </div>
+            {/*<div id='today-card-info' className='z-10 flex justify-between w-full relative text-white p-10 items-end'>*/}
+            {/*    <div onClick={handleClickMore} className={`'${isCoverUp ? '' : 'hidden pointer-events-none '} flex items-center px-3 h-10 justify-center bg-[#425aef] hover:bg-[#4259efcb] transition-colors duration-100 rounded-3xl`}>*/}
+            {/*        <PlusSmall className={'w-6 h-6 mr-2 bg-white rounded-full stroke-indigo-400'} />*/}
+            {/*        <div id='more' className='select-none'>更多推荐</div>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
             <div id='today-card-cover' className={`${isCoverUp ? '' : ' pointer-events-none'} cursor-pointer today-card-cover absolute w-full h-full top-0`} style={{ background: `url(${imageUrl}) no-repeat center /cover` }}></div>
         </div>
     </div>
